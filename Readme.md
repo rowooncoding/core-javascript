@@ -5,5 +5,7 @@
 - [ ] Code Structure
 - [ ] Variables
 - [ ] Static Mode
+- [ ] Global This
+- [ ] Data Type
 
 [JavaScript Core 브랜치](http://www.naver.com)
