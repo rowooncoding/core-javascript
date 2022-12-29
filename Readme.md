@@ -10,7 +10,6 @@
 - [v] type conversion
 - [v] operator
 - [v] condition(if,else)
-- [ ] condition(논리 연산자)
-- [ ] condition(nullish 병합 연산자)
+- [v] condition(논리 연산자)
 
 [JavaScript Core 브랜치](http://www.naver.com)
