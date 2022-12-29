@@ -2,10 +2,10 @@
 
 ## 자바스크립트 코어에 대해 학습합니다.
 
-- [ ] Code Structure
-- [ ] Variables
-- [ ] Static Mode
-- [ ] Global This
-- [ ] Data Type
+- [v] Code Structure
+- [v] Variables
+- [v] Static Mode
+- [v] Global This
+- [v] Data Type
 
 [JavaScript Core 브랜치](http://www.naver.com)

@@ -50,7 +50,6 @@ const fuc = function (){
 
 
 
-
 // Object
 /* key value */
 // const user = new Object() // 생성자 함수를 사용할 수도 있는데 귀찮아서 밑에는 축약형
