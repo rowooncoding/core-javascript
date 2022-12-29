@@ -7,5 +7,7 @@
 - [v] Static Mode
 - [v] Global This
 - [v] Data Type
+- [v] type conversion
+- [v] operator
 
 [JavaScript Core 브랜치](http://www.naver.com)
