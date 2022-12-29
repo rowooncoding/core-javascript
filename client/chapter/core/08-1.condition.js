@@ -41,7 +41,7 @@ if(didWatchMovie === 'yes') {
 }else if(goingToWatchMovie === 'yes'){
   console.log(('합격'));
 }else {
-  console.log('불합격ㅛㄷㄴ');
+  console.log('불합격');
 }
 
 
