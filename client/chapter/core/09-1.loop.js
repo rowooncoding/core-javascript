@@ -55,11 +55,11 @@ const frontEndDev = [
 
 /* 전개 구문 */
   // let copyArray = [...frontEndDev];
-  let copyArray = frontEndDev.slice();
+  // let copyArray = frontEndDev.slice();
 
-  while(copyArray.length){
-    console.log(copyArray.pop());
-  }
+  // while(copyArray.length){
+  //   console.log(copyArray.pop());
+  // }
 
 /* 배열의 능력 팝!! -> 제거된 요소가 툭 튀어나온다 단, 기존 배열은 없어짐 다 내보냈기 때문에 */ 
 // while(frontEndDev.length){

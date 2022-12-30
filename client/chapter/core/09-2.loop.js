@@ -41,31 +41,31 @@
 // // }while(count)
 
 
-llet first = document.querySelector('.first');
-let second = document.querySelector('.second');
+// let first = document.querySelector('.first');
+// let second = document.querySelector('.second');
 
 
 
 
-function next(node){
+// function next(node){
 
-  do{
-    node = node.nextSibling;
+//   do{
+//     node = node.nextSibling;
   
-  }while(node.nodeType !== document.ELEMENT_NODE)
+//   }while(node.nodeType !== document.ELEMENT_NODE)
 
-  return node
-}
+//   return node
+// }
 
-// next(first) // second 
+// // next(first) // second 
 
-// prev(second)   // first 
+// // prev(second)   // first 
 
-function prev(node){
-  do{
-    node = node.previousSibling;
+// function prev(node){
+//   do{
+//     node = node.previousSibling;
   
-  }while(node.nodeType !== document.ELEMENT_NODE)
+//   }while(node.nodeType !== document.ELEMENT_NODE)
 
-  return node
-}
+//   return node
+// }

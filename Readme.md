@@ -11,7 +11,9 @@
 - [v] operator
 - [v] condition(if,else)
 - [v] condition(논리 연산자)
-- [] nullish
-- [] loop(while)
+- [v] nullish
+- [v] loop(while)
+- [v] loop(do while)
+- [v] loop(for)
 
 [JavaScript Core 브랜치](http://www.naver.com)
