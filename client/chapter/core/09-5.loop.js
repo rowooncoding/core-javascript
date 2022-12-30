@@ -3,6 +3,39 @@
 /* For Of Loop                                                            */
 /* ---------------------------------------------------------------------- */
 
+
+// String, Array, Array-like  =  iterable
+
+
+const arrayLike = {
+  0: 'body',
+  1: 'head',
+  2: 'div',
+  length: 3,
+   // [Symbol.iterator](){...}
+}
+
+// for(let value of arrayLike){
+  // console.log(value);
+// }
+
+
+let str = '유사배열';
+
+
+
+// console.log(str);
+
+for(let value of str){
+  console.log(value);
+}
+
+
+
+
+
+
+
 const languages = [
   {
     id: 'ecma-262',
@@ -31,10 +64,34 @@ const languages = [
 ];
 
 
+
 // for ~ of 문
 // - 특정 조건에서 건너띄기
-// - 특정 조건에서 중단하기
 
+for(let value of languages){
+  // console.table(value.name);
+  
+  if(value.name === 'Java') continue;
+
+  // console.table(value);
+  
+}
+
+
+
+for(let value of languages){
+  // console.table(value.name);
+  
+  let name = value.name;
+  if(name.includes('C#')) break;
+
+  console.table(value);
+  
+}
+
+
+
+// - 특정 조건에서 중단하기
 
 
 
@@ -78,3 +135,9 @@ const randomUser = {
 // - for ~ in 문
 // - for ~ of 문
 // - 성능 비교 진단
+
+/* 
+  Object.entries
+  Object.keys
+  Object.values
+ */
