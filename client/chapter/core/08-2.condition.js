@@ -53,3 +53,22 @@ if(userName === 'Admin') {
 }
 
 console.log(userName);
+
+// 대소문자 구분 안하고 입력 가능하도록 하기
+
+/* tolowercase -> 취소 했을 경우에 null이 되는데 null.tolowercase는 효과가 없어서 에러가 난다! */
+/* 옵셔널 체이닝! -> 물음표를 붙인다 -> null이나 undefiend를 만나면 함수를 실행시지 않는 property*/
+if(userName?.toLowerCase === 'admin') {
+  let pw = prompt('비밀번호를 입력해 주세요','');
+  
+  if(pw?.toLowerCase === 'themaster'){
+    console.log('환영합니다');
+  }else {
+    console.log('취소되었습니다');
+  }
+  // 공백만나면 else if 가 실행되지 않는 문제 해결 -> 정규 표현식 사용 .replace(/\s*/g,'')
+}else if(userName.replace(/\s*/g,'') === '' || userName === null) {
+  console.log('취소됐습니다.');
+}else {
+  console.log('인증되지 않은 사용자 입니다');
+}
