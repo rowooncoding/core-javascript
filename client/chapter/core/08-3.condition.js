@@ -92,21 +92,27 @@ if(thisTime === MORNING) {
 // 함수만들기
 
 function getRandom(n){
-  return Math.round(Math.random()*6)
+  return Math.round(Math.random() * n)
 }
 
+
+
+
 function getDay(dayValue){
-  switch(dayValue) {
-    case 1 : return '일';
-    case 2 : return '월';
-    case 0 : return '화';
-    case 3 : return '수';
-    case 4 : return '목';
-    case 5 : return '금';
-    case 6 : return '토';
+
+  switch (dayValue) {
+    case 0: return '일';
+    case 1: return '월';
+    case 2: return '화';
+    case 3: return '수';
+    case 4: return '목';
+    case 5: return '금';
+    case 6: return '토';
+  
   }
 }
 
-let result = getDay(Math.round(Math.random()*6))
+
+let result = getDay(getRandom(6));
 
 console.log(result);
