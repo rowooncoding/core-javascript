@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 /* ---------------------------------------------------------------------- */
 /* DOM traversal                                                          */
@@ -38,6 +39,9 @@ let second = span[1];
 
 /* 문서 대상 확인 */
 // - matches
+
+console.log( getNode('.first').matches('.first'));
+
 // - contains
 
-
+console.log(getNode('hi').contains(getNode('.first'))); 
