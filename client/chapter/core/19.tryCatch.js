@@ -60,9 +60,6 @@ let data = JSON.stringify({
 // console.log();
 
 
-
-
-
 try {
   let user = JSON.parse(data)
   
