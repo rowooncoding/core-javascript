@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 /* ---------------------------------------------------------------------- */
 /* DOM traversal                                                          */
 /* ---------------------------------------------------------------------- */
@@ -29,19 +27,60 @@
 // - querySelectorAll
 // - closest
 
-// let first = document.querySelector('.first');
-let span = document.querySelectorAll('span');
 
-let first = span[0];
-let second = span[1];
+// let first = document.querySelector('.first');
+
+// let [first,second] = document.querySelectorAll('span');
+
+
+// console.log(second);
+
+
+
+
+
+
+console.log();
+
+
+
 
 
 
 /* 문서 대상 확인 */
 // - matches
-
-console.log( getNode('.first').matches('.first'));
-
+//            선택자 안에  class || id 를 가지고 있는 대상이 있어?
+console.log( getNode('.first').matches('.first') );
 // - contains
 
-console.log(getNode('hi').contains(getNode('.first'))); 
+
+//              선택자의 자식들 중에 해당 element가 있어?
+console.log( getNode('h1').contains(getNode('.first')) );
+
+
+
+
+
+
+
+
+let first = getNode('.first');
+
+let clicked = false;
+document.addEventListener('click',()=>{
+
+  
+  if(first.classList.contains('first') && !clicked){
+    first.classList.add('is-active')
+  }else{
+    first.classList.remove('is-active')
+  }
+
+  clicked = !clicked;
+})
+
+
+
+
+
+
