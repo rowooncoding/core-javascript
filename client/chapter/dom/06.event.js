@@ -12,6 +12,8 @@
 
 const first = getNode('.first');
 const second = getNode('.second');
+const ground = getNode('.ground');
+const ball = getNode('.ball');
 
 
 function handler(){
@@ -22,7 +24,7 @@ function handler(){
 
 }
 
-// first.addEventListener('click', handler);
+first.addEventListener('click', handler);
 
 
 
@@ -30,7 +32,11 @@ function handler(){
 
 // bindEvent('.second','click',off);
 
+ground.addEventListener('click',function(e){
+  console.log(e.offsetX,e.offsetY);
 
+  ball.style.transform = `translate(${e.offsetX}px, ${e.offsetY}px)`;
+})
 
 
 // second.addEventListener('click',function(){
