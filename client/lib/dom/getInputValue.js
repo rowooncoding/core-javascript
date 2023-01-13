@@ -1,6 +1,6 @@
-import {refError} from "../error/index.js";
-import {getNode} from "./getNode.js";
 
+import { getNode } from "./getNode.js";
+import { refError } from "../error/refError.js";
 
 export function getInputValue(node){
   if(typeof node === 'string') node = getNode(node);
