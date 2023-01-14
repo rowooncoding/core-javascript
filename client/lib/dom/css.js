@@ -1,5 +1,5 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
+import { getNode } from "./getNode.js";
+import { typeError, syntaxError } from "../error/index.js"
 
 export function addClass(node,className){
   
@@ -79,7 +79,7 @@ function setCss(node,prop,value){
 }
 
 
-export css = (node,prop,value) => { 
+export const css = (node,prop,value) => { 
   return !value ? getCss(node,prop) : setCss(node,prop,value) 
 }
 
