@@ -1,0 +1,7 @@
+{
+  "editor.tokenColorCustomizations": {
+    "comments": "",
+    "textMateRules": []
+  },
+  "editor.fontFamily": "Fira Code, Consolas, 'Courier New', monospace"
+}
