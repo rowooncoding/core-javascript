@@ -44,6 +44,38 @@ ground.addEventListener('click',function(e){
 // })
 
 
+function handlerTrue (e) {
+  console.log(e.offsetX, e.offsetY);
+  ball.style.transform = `translate(${e.offsetX}px`,`${e.offsetY}px)`;
+}
+
+ground.addEventListener("mousemove", debounce(handlerTrue) );
+
+
+function debounce(callback, limit = 2000) {
+  let timeout;
+  return function (...args) {
+    console.log(args);
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      callback.apply(this, args);
+    }, limit);
+  };
+}
+
+
+function throttle(callback, limit = 1000) {
+  let waiting = false;
+  return function () {
+    if (!waiting) {
+      callback.apply(this, arguments);
+      waiting = true;
+      setTimeout(() => {
+        waiting = false;
+      }, limit);
+    }
+  };
+}
 
 
 
