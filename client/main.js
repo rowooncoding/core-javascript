@@ -3,6 +3,8 @@ import {clearContents, getInputValue, getNode, getRandom, insertLast, isNumericS
 
 import { jujeobData } from "./data/data.js";
 
+const submit = getNode('#submit');
+const reusltArea = getNode('.result');
 
 
 
