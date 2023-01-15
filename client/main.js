@@ -12,6 +12,9 @@ function handler(e){
   let name = getInputValue('#nameField');
   let list = jujeobData(name);
   let pick = list[getRandom(list.length-1)];
+
+  clearContents(resultArea);
+  insertLast(resultArea,pick);
 }
 
 
