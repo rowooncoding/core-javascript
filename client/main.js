@@ -32,13 +32,15 @@ const result = getNode('.result');
 
 function handler(e){
   e.preventDefault();
-  
+
+  let firstValue = +getInputValue(firstInput);
+  let secondValue = +getInputValue(secondInput);
+  let total = sum(firstValue,secondValue);
+
+  clearContents(result);
+  insertLast(result,total);
+
 }
-
-
-
-
-
 
 
 done.addEventListener('click',handler);
