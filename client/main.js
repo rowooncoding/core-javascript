@@ -24,8 +24,21 @@ import {
   insertLast,
   } from "./lib/index.js";
 
-// 노드 가져오기
 const firstInput = getNode('#firstNumber');
 const secondInput = getNode('#secondNumber');
 const done = getNode('#done');
 const result = getNode('.result');
+
+
+function handler(e){
+  e.preventDefault();
+  
+}
+
+
+
+
+
+
+
+done.addEventListener('click',handler);
