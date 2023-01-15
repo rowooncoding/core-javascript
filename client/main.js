@@ -4,9 +4,17 @@ import {clearContents, getInputValue, getNode, getRandom, insertLast, isNumericS
 import { jujeobData } from "./data/data.js";
 
 const submit = getNode('#submit');
-const reusltArea = getNode('.result');
+const resultArea = getNode('.result');
 
 
+function handler(e){
+  e.preventDefault();
+  
+}
+
+
+
+submit.addEventListener('click',handler);
 
 
 
