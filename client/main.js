@@ -7,7 +7,8 @@ import {
   getNode, 
   getNodes,
   visibleElement,
-  invisibleElement
+  invisibleElement,
+  insertLast
  } from "./lib/index.js";
 
 
@@ -29,8 +30,23 @@ const [rollingDiceButton,recordButton,resetButton] = getNodes('.buttonGroup > bu
 
 const recordListWrapper = getNode('.recordListWrapper')
 
+function renderRecordListItem(){
+let template = /*html*/ `
+    <tr>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+  `
+
+  insertLast('.recordListWrapper tbody',template)
+}
 
 
+
+
+
+// 이벤트 영역
 const handleRollingDice = (() => {
  
   let isRolling = false;
@@ -61,6 +77,8 @@ const handleRollingDice = (() => {
 const handleRecord =()=>{
   
   visibleElement(recordListWrapper)
+
+  renderRecordListItem();
 }
 
 const handleReset = () => {
