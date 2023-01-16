@@ -47,9 +47,8 @@ let template = /*html*/ `
   `
 
   insertLast('.recordListWrapper tbody',template)
-
-  
-
+  // 스크롤 제한
+  recordListWrapper.scrollTop = recordListWrapper.scrollHeight
 }
 
 
