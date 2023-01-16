@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 
 import {clearContents, getInputValue, getNode, getRandom, insertLast, isNumericString,addClass,removeClass, showAlert,copy } from './lib/index.js'
 
@@ -27,11 +28,22 @@ function clickSubmitHandler(e){
   if(!name){
     console.log('이름을 입력해 주세요!');
     showAlert('.alert-error','잘못된 정보입니다.!',2000);
+    //위의 shake 코드를 gsap으로 만들어보자
+    //<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script> 인덱스 파일에 추가
+    gsap.fromTo(resultArea, 0.01, {x:-5}, {x:5, clearProps:"x", repeat:20})
+    
+    // 그냥 addClass만 하면 shake 클래스가 안지워져서 한번만 떨리고 끝인데 setTimeOut으로 1초되에 삭제해주면 지워지고 생기고 해서 계속 가능하다
+    // addClass(resultArea,'shake');
+    // setTimeout(()=>{
+    //   removeClass(resultArea,'shake');
+    // },1000)
+
     return 
   }
   // 숫자가 들어간 이름일 경우에 뜨는 것
   if(isNumericString(name)){
     console.log('제대로된 이름을 입력해주세요.');
+    gsap.fromTo(resultArea, 0.01, {x:-5}, {x:5, clearProps:"x", repeat:20})
     showAlert('.alert-error','잘못된 이름입니다.!',2000);
     return
   }
