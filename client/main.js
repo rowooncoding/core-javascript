@@ -5,12 +5,13 @@ import {
   disableElement, 
   enableElement, 
   getNode, 
+  clearContents,
   getNodes,
+  insertLast,
   visibleElement,
   invisibleElement,
-  insertLast,
-  attr,
-  clearContents
+  memo,
+  attr
  } from "./lib/index.js";
 
 
@@ -27,28 +28,56 @@ import {
 // 4. visible 활성 유틸 함수 만들기
 // 5. toggleState 유틸 함수 만들기 
 
+// [ 레코드 템플릿 뿌리기 ]
+// 1. renderRecordListItem 함수 만들기
+// 2. HTML 템플릿 만들기
+// 3. 템플릿 뿌리기 
+
+
+// [ 초기화 시키기 ]
+// 1. clearContent 로 정보 지우기
+// 2. total, count 초기화 
+// 3. 스크롤 밑으로 보내기 
+// 4. 메모이제이션 패턴 
+
+
+
+
 // 배열의 구조 분해 할당 
 const [rollingDiceButton,recordButton,resetButton] = getNodes('.buttonGroup > button');
 
 const recordListWrapper = getNode('.recordListWrapper')
 
+
+memo('@tbody',()=>getNode('.recordListWrapper tbody'));
+
+
+
+// 특정 대상의 속성값을 가져오거나 / 설정할 수 있는 함수 
+
+
+/* -------------------------------------------------------------------------- */
+/* render                                                                     */
+/* -------------------------------------------------------------------------- */
+
 let count = 0;
 let total = 0;
+// redux
+// mobx
 
 function renderRecordListItem(){
+  
+  let diceValue = Number(attr(memo('cube'),'data-dice'));
 
-  let diceValue = +attr('#cube','data-dice');
-
-let template = /*html*/ `
+  let template = /* html */ `
     <tr>
       <td>${++count}</td>
       <td>${diceValue}</td>
       <td>${total += diceValue}</td>
     </tr>
   `
-
-  insertLast('.recordListWrapper tbody',template)
-  // 스크롤 제한
+  
+  insertLast(memo('@tbody'),template)
   recordListWrapper.scrollTop = recordListWrapper.scrollHeight
 }
 
@@ -56,9 +85,12 @@ let template = /*html*/ `
 
 
 
-// 이벤트 영역
-const handleRollingDice = (() => {
+/* -------------------------------------------------------------------------- */
+/* event                                                                      */
+/* -------------------------------------------------------------------------- */
 
+const handleRollingDice = (() => {
+ 
   let isRolling = false;
   let stopAnimation;  
 
@@ -83,24 +115,22 @@ const handleRollingDice = (() => {
 
 })()
 
-
 const handleRecord =()=>{
   
-  visibleElement(recordListWrapper)
-
+  visibleElement(recordListWrapper);
   renderRecordListItem();
+
 }
 
 const handleReset = () => {
-  invisibleElement(recordListWrapper)
-  // 초기화 누르면 검사 창에는 안지워져 있어서 clearcontnets로 날림
-  // 근데 회차는 안날라가서 
+
   count = 0;
   total = 0;
-  clearContents('.recordListWrapper tbody')
+
+  invisibleElement(recordListWrapper);
+  clearContents(memo('@tbody'))
+
 }
-
-
 
 rollingDiceButton.addEventListener('click',handleRollingDice)
 recordButton.addEventListener('click',handleRecord)
