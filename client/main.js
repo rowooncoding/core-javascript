@@ -1,5 +1,5 @@
 
-import {clearContents, getInputValue, getNode, getRandom, insertLast, isNumericString,addClass,removeClass, showAlert } from './lib/index.js'
+import {clearContents, getInputValue, getNode, getRandom, insertLast, isNumericString,addClass,removeClass, showAlert,copy } from './lib/index.js'
 
 import { jujeobData } from "./data/data.js";
 
@@ -42,15 +42,16 @@ function clickSubmitHandler(e){
   insertLast(resultArea,pick)
   
 }
-
+//클립보드 복사 코드
 function clickCopyHandler(e){
   let text = resultArea.textContent;
-  navigator.clipboard.writeText(text)
+  copy(text);
 }
 
 //2. submit에 클릭 이벤트 삽입
 submit.addEventListener('click',clickSubmitHandler)
 resultArea.addEventListener('clikc',clickCopyHandler)
+
 
 
 
