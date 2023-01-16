@@ -1,15 +1,61 @@
-import { typeError } from "../error.js";
+import { typeError } from "../error/typeError.js";
+import { isElement } from "../utils/typeOf.js";
 
-export function disalbeElement(node){
-  if(node.nodeType !== document.ELEMENT_NODE){
-    typeError('이 함수의 인자는 dom 요소 노드이어야 합니다')
+
+
+//jsDoc
+/**
+ * @function isElement checkElement
+ * @param {HTMLelement} node
+ * @return set disabled 
+ */
+
+export function disableElement(node){
+
+  if(!isElement(node)){
+    typeError('disableElement 함수의 인자는 DOM 요소 노드 이어야 합니다.')
   }
   node.disabled = true;
 }
 
-export function enalbeElement(node){
-  if(node.nodeType !== document.ELEMENT_NODE){
-    typeError('이 함수의 인자는 dom 요소 노드이어야 합니다')
+
+export function enableElement(node){
+  if(!isElement(node)){
+    typeError('enableElement 함수의 인자는 DOM 요소 노드 이어야 합니다.')
   }
+  
   node.disabled = false;
 }
+
+
+
+disableElement()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
