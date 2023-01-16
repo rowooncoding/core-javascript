@@ -2,14 +2,20 @@ import { diceAnimation, getNode } from "./lib/index.js";
 
 let rollingDicebutton = getNode('.buttonGroup > button:nth-child(1)');
 
-let id = setInterval(() => {
-  
-}, 1000);
-
-clearInterval(id)
 
 const handlerRollingDice = () => {
-  diceAnimation();
+  let stopAnimation
+  let isRolling = false;
+  
+  return function(){if(!isRolling){
+    stopAnimation =  setInterval(diceAnimation,100)
+  }else {
+    clearInterval(stopAnimation);
+  }
+  // 계속 false 값이 나오니까 값 반전해서 else값이 가능하도록
+  isRolling = !isRolling;
+}
+  
 }
 
 
