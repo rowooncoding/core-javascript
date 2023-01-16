@@ -9,7 +9,8 @@ import {
   visibleElement,
   invisibleElement,
   insertLast,
-  attr
+  attr,
+  clearContents
  } from "./lib/index.js";
 
 
@@ -91,8 +92,12 @@ const handleRecord =()=>{
 }
 
 const handleReset = () => {
-
   invisibleElement(recordListWrapper)
+  // 초기화 누르면 검사 창에는 안지워져 있어서 clearcontnets로 날림
+  // 근데 회차는 안날라가서 
+  count = 0;
+  total = 0;
+  clearContents('.recordListWrapper tbody')
 }
 
 
