@@ -1,7 +1,10 @@
-import { diceAnimation, getNode } from "./lib/index.js";
+import { diceAnimation, getNode, getNodes} from "./lib/index.js";
 
-let rollingDicebutton = getNode('.buttonGroup > button:nth-child(1)');
+// let rollingDicebutton = getNode('.buttonGroup > button:nth-child(1)');
+// let recordButton = getNode('.buttonGroup > button:nth-child(2)');
+// let resetButton = getNode('.buttonGroup > button:nth-child(3)');
 
+const [rollingDicebutton, recordButton, resetButton] = getNodes('.buttonGroup > button');
 
 const handlerRollingDice = (()=>{
   let stopAnimation
@@ -10,8 +13,11 @@ const handlerRollingDice = (()=>{
   return function(){
   if(!isRolling){
   stopAnimation =  setInterval(diceAnimation,100)
+  recordButton.disabled = true;
+
   }else {
   clearInterval(stopAnimation);
+  recordButton.disabled = false;
   }
   isRolling = !isRolling;
 } 
