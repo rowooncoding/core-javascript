@@ -5,7 +5,9 @@ import {
   disableElement, 
   enableElement, 
   getNode, 
-  getNodes
+  getNodes,
+  visibleElement,
+  invisibleElement
  } from "./lib/index.js";
 
 
@@ -25,19 +27,11 @@ import {
 // 배열의 구조 분해 할당 
 const [rollingDiceButton,recordButton,resetButton] = getNodes('.buttonGroup > button');
 
-// console.log(button);
-// const rollingDiceButton = getNode('.buttonGroup > button:nth-child(1)');
-// const recordButton = getNode('.buttonGroup > button:nth-child(2)');
-// const resetButton = getNode('.buttonGroup > button:nth-child(3)');
+const recordListWrapper = getNode('.recordListWrapper')
 
 
 
-// let stopAnimation;
-
-
-// IIFE
-
-const handlerRollingDice = (() => {
+const handleRollingDice = (() => {
  
   let isRolling = false;
   let stopAnimation;  
@@ -64,10 +58,21 @@ const handlerRollingDice = (() => {
 })()
 
 
+const handleRecord =()=>{
+  
+  visibleElement(recordListWrapper)
+}
+
+const handleReset = () => {
+
+  invisibleElement(recordListWrapper)
+}
 
 
 
-rollingDiceButton.addEventListener('click',handlerRollingDice)
+rollingDiceButton.addEventListener('click',handleRollingDice)
+recordButton.addEventListener('click',handleRecord)
+resetButton.addEventListener('click',handleReset)
 
 // let eventOff = bindEvent(rollingDiceButton,'click',handlerRollingDice);
 

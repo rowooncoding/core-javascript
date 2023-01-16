@@ -27,13 +27,19 @@ export function enableElement(node){
   node.disabled = false;
 }
 
+export function visibleElement(node){
+  if(!isElement(node)){
+    typeError('visibleElement 함수의 인자는 DOM 요소 노드 이어야 합니다.')
+  }
+  node.hidden = false;
+}
 
-
-disableElement()
-
-
-
-
+export function invisibleElement(node){
+  if(!isElement(node)){
+    typeError('invisibleElement 함수의 인자는 DOM 요소 노드 이어야 합니다.')
+  }
+  node.hidden = true;
+}
 
 
 
