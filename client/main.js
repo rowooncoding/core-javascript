@@ -43,9 +43,14 @@ function clickSubmitHandler(e){
   
 }
 
+function clickCopyHandler(e){
+  let text = resultArea.textContent;
+  navigator.clipboard.writeText(text)
+}
 
 //2. submit에 클릭 이벤트 삽입
 submit.addEventListener('click',clickSubmitHandler)
+resultArea.addEventListener('clikc',clickCopyHandler)
 
 
 
