@@ -45,7 +45,14 @@ function clickSubmitHandler(e){
 //클립보드 복사 코드
 function clickCopyHandler(e){
   let text = resultArea.textContent;
-  copy(text);
+  // promise 구문! 확실히 되면 promise를 뱉을게! 그러고 나서 ... 할게!!!
+  copy(text).then(()=>{
+    showAlert('.alert-success','클립보드 복사가 완료됐습니다.',2000);
+  })
+  // 다음 해야할일
+  // showAlert('.alert-success','클립보드 복사가 완료됐습니다.',2000);
+  // 그런데 만약 복사 실패가 되어도 복사가 됐다고 뜸!
+  // 그걸 확실하게 '약속' 해줄게!!!! -> promise ; copy.js. 참조
 }
 
 //2. submit에 클릭 이벤트 삽입
