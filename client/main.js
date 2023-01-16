@@ -8,7 +8,8 @@ import {
   getNodes,
   visibleElement,
   invisibleElement,
-  insertLast
+  insertLast,
+  attr
  } from "./lib/index.js";
 
 
@@ -30,16 +31,25 @@ const [rollingDiceButton,recordButton,resetButton] = getNodes('.buttonGroup > bu
 
 const recordListWrapper = getNode('.recordListWrapper')
 
+let count = 0;
+let total = 0;
+
 function renderRecordListItem(){
+
+  let diceValue = +attr('#cube','data-dice');
+
 let template = /*html*/ `
     <tr>
-      <td>0</td>
-      <td>5</td>
-      <td>5</td>
+      <td>${++count}</td>
+      <td>${diceValue}</td>
+      <td>${total += diceValue}</td>
     </tr>
   `
 
   insertLast('.recordListWrapper tbody',template)
+
+  
+
 }
 
 
@@ -48,7 +58,7 @@ let template = /*html*/ `
 
 // 이벤트 영역
 const handleRollingDice = (() => {
- 
+
   let isRolling = false;
   let stopAnimation;  
 
