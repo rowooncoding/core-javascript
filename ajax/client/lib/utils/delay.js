@@ -66,8 +66,9 @@ function delayP(options = {}){
   }
   
   // 객체 합성  mixin
-
+  if(isObject(options)){
   config = {...config,...options};
+  }
   
   // 합성한걸 다시 할당
   const {shouldReject,data,errorMessage,timeout} = config;
