@@ -27,6 +27,16 @@ delay(()=>{
   })
 })
 
+function delayP(timeout = 1000){
+
+  return new Promise((resolve,reject)=> {
+    setTimeout(()=>{
+      resolve('성공!');
+      // reject('실패!');
+    },timeout);
+  })
+}
+console.log(delayP());
 
 
 
