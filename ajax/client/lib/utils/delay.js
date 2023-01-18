@@ -50,14 +50,27 @@ delayP()
  */
 
 const defaultOptions = {
-  shouldReject : false,
-  timeout : 1000,
-  data : '성공',
-  errorMessage : '알 수 없는 오류가 발생했습니다.'
+  shouldReject: false,
+  timeout: 1000,
+  data:'성공',
+  errorMessage: '알 수 없는 오류가 발생했습니다.'
 }
 
-function delayP(shouldReject = false, timeout = 1000,data = '성공했습니다.', errorMessage = '알 수 없는 오류가 발생했습니다.'){
+function delayP(options = {}){
 
+  // defaultOptions
+
+  let config = {...defaultOptions}
+  
+  
+  // 객체 합성  mixin
+
+  config = {...config,...options};
+  
+  // 합성한걸 다시 할당
+  const {shouldReject,data,errorMessage,timeout} = config;
+  
+  
   return new Promise((resolve, reject) => {
     
     setTimeout(() => {
@@ -66,8 +79,10 @@ function delayP(shouldReject = false, timeout = 1000,data = '성공했습니다.
   })
 }
 
-
-delayP(false,1000,'진짜 성공','오류가 발생했다!!').then((res)=>{
+// 새로운 값을 받고 기존값은 덮어쓰기!
+delayP({
+  data: '안녕',
+}).then((res)=>{
   console.log(res); // 진짜 성공
 })
 
