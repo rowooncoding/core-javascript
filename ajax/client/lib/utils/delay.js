@@ -49,6 +49,13 @@ delayP()
 })
  */
 
+const defaultOptions = {
+  shouldReject : false,
+  timeout : 1000,
+  data : '성공',
+  errorMessage : '알 수 없는 오류가 발생했습니다.'
+}
+
 function delayP(shouldReject = false, timeout = 1000,data = '성공했습니다.', errorMessage = '알 수 없는 오류가 발생했습니다.'){
 
   return new Promise((resolve, reject) => {
