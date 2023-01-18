@@ -48,8 +48,8 @@ function delayP(timeout = 1000){
   return new Promise((resolve, reject) => {
     
     setTimeout(() => {
-      resolve('성공!');
-      // reject('실패!');
+      // resolve('성공!');
+      reject('실패!');
     }, timeout);
   })
 }
@@ -58,6 +58,9 @@ function delayP(timeout = 1000){
 delayP()
 .then((res)=>{
   console.log(res);
+})
+.catch((err)=>{
+  console.log(err);
 })
 
 
