@@ -193,7 +193,29 @@ movePage(
 
 
 
+// promise API
 
+function xhrPromise(){
 
+  const xhr = new XMLHttpRequest();
 
+  xhr.open(method,url);
+
+  return new Promise((resove,reject)=>{
+    xhr.addEventListener('readystatechange',()=>{
+      const {status,readyState, response} = xhr;
+
+      if(status >= 200 && status < 400){
+        if(readyState === 4){
+
+          resolve(JSON.parse(response))
+        }
+      }else{
+        reject('에러입니다.')
+      }
+    })
+  })
+}
+
+xhr.send();
 
