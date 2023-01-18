@@ -132,27 +132,34 @@ let result = await delayA()
 
 async function 라면끓이기(){
 
-  await delayP(1500)
-  first.style.top = '-100px';
+  try{
 
-  await delayP(1500)
-  first.style.transform = 'rotate(360deg)';
+    await delayP()
+    first.style.top = '-100px';
 
-  await delayP(1500)
-  first.style.top = '0px';
+    await delayP()
+    first.style.transform = 'rotate(360deg)';
 
-  await delayP(1500)
-  console.log('계란넣기');
+    await delayP()
+    first.style.top = '0px';
 
-  await delayP(1500)
-  console.log('그릇에담기');
+    await delayP()
+    console.log('계란넣기');
+
+    // throw new Error('계란 껍질이 들어가버렸다!');
+    await delayP()
+    console.log('그릇에담기');
+
+  }catch(err){
+      console.log(err);
+  }
 
 }
 
 
 
 
-라면끓이기()
+// 라면끓이기()
 
 
 
