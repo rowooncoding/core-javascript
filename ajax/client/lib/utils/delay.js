@@ -59,9 +59,11 @@ const defaultOptions = {
 function delayP(options = {}){
 
   // defaultOptions
-
+  // 숫자 조건 처리!
   let config = {...defaultOptions}
-  
+  if(isNumber(options)){
+    config.timeout = options;
+  }
   
   // 객체 합성  mixin
 
@@ -79,10 +81,8 @@ function delayP(options = {}){
   })
 }
 
-// 새로운 값을 받고 기존값은 덮어쓰기!
-delayP({
-  data: '안녕',
-}).then((res)=>{
+// 숫자 받고싶어!
+delayP(3000).then((res)=>{
   console.log(res); // 진짜 성공
 })
 
