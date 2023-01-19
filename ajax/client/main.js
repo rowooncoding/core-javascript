@@ -1,22 +1,41 @@
 
 
+import { 
+  insertLast,
+  tiger,
+  delayP
+ } from "./lib/index.js";
 
 
-import { xhrData,insertLast } from "./lib/index.js";
+
+// rendingUserList 함수 만들기 
+// ajax (tiger) get user List
+
+
+// 유저 카드 생성
+// 생성된 카드로 랜더링 
+
+async function rendingUserList(){
+  
+  let response = await tiger.get('https://jsonplaceholder.typicode.com/users/1')
+  
+  let userData = response.data;
+
+  console.log(userData);
+
+
+}
 
 
 
-/* 
-
-xhrData.get(
-  'https://jsonplaceholder.typicode.com/users/1',
-  (res)=>{
-    insertLast('body',JSON.stringify(res))
-  },
-  (err)=>{
-    insertLast('body','데이터 로딩에 실패했습니다.')
-  }
-)
+rendingUserList();
 
 
- */
+
+
+
+
+
+
+
+
