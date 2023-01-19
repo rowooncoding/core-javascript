@@ -1,15 +1,16 @@
 
+import { insertLast } from './insert.js'
 
 
 
-
-
-const createUserCard = (user) =>{
-
-  const {id,name,email,website = '사이트'} = user
-
-
-  return /* html */` 
+const createUserCard = ({
+  id = '',
+  name = '',
+  email = '',
+  website = ''
+} = {}) =>{
+  
+  return /* html */`
   <article class="user-card" data-index="user-${id}">
     <h3 class="user-name">${name}</h3>
     <div class="user-resouce-info">
@@ -27,11 +28,16 @@ const createUserCard = (user) =>{
 
 
 
-console.log( createUserCard({
-  id:1,
-  name:'tiger',
-  email:'tiger@euid.dev',
-  website : 'tiger.com'
-  
-}) );
+export const renderUserCard = (target,data) => {
+  insertLast(target, createUserCard(data));
+}
+
+
+
+
+
+
+
+
+
 
