@@ -35,7 +35,7 @@ async function rendingUserList() {
 
     $('.loadingSpinner').remove();
 
-    let response = await tiger.get( 'https://jsonplaceholder.typicode.com/user' );
+    let response = await tiger.get( 'https://jsonplaceholder.typicode.com/users' );
   
     let userData = response.data;
     // userData.forEach(data=> renderUserCard(userCardContainer,data))
@@ -57,6 +57,22 @@ async function rendingUserList() {
 }
 
 rendingUserList();
+
+function handler(e){
+  let deleteButton = e.target.closest('button');
+  let article = e.target.closest('article');
+
+  if(!deleteButton || !article) return;
+
+   
+  let id = attr(article,'data-index').slice(5);
+
+  console.log(id);
+  
+}
+
+
+userCardContainer.addEventListener('click',handler)
 
 
 
