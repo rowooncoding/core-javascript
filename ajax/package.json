@@ -4,7 +4,6 @@
   },
   "devDependencies": {
     "eslint": "^8.30.0",
-    "live-server": "^1.2.2",
-    "nodemon": "^2.0.20"
+    "live-server": "^1.2.2"
   }
 }
