@@ -5,7 +5,8 @@ import {
   tiger,
   delayP,
   getNode,
-  renderUserCard
+  renderUserCard,
+  changeColor,
 } from './lib/index.js';
 
 // rendingUserList 함수 만들기
@@ -34,6 +35,7 @@ async function rendingUserList() {
     renderUserCard(userCardContainer,data)
   })
 
+  changeColor('.user-card');
   
   gsap.utils.toArray('.user-card')
   gsap.to(gsap.utils.toArray('.user-card'),{
