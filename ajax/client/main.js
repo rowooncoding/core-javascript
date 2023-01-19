@@ -36,6 +36,12 @@ async function rendingUserList() {
 
   
   gsap.utils.toArray('.user-card')
+  gsap.to(gsap.utils.toArray('.user-card'),{
+    x:0,
+    opacity:1,
+    duration:1.5,
+    stagger:0.2,
+    })
   // 객체 하나만 받아서 랜더링
 
 }
