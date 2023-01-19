@@ -9,7 +9,8 @@ import {
   insertLast,
   changeColor,
   renderSpinner,
-  renderUserCard
+  renderUserCard,
+  renderEmptyCard,
 } from './lib/index.js';
 
 // rendingUserList 함수 만들기
@@ -34,7 +35,7 @@ async function rendingUserList() {
 
     $('.loadingSpinner').remove();
 
-    let response = await tiger.get( 'https://jsonplaceholder.typicode.com/users' );
+    let response = await tiger.get( 'https://jsonplaceholder.typicode.com/user' );
   
     let userData = response.data;
     // userData.forEach(data=> renderUserCard(userCardContainer,data))
@@ -51,7 +52,7 @@ async function rendingUserList() {
       stagger: 0.2,
     })
   }catch(err){
-    console.log(err);
+    renderEmptyCard(userCardContainer)
   }
 }
 
